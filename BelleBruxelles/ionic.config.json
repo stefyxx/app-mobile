@@ -1,0 +1,7 @@
+{
+  "name": "BelleBruxelles",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,4 @@
+&nbsp; - questa entità corrisponde ad uno spazio bianco (NON-breaking space) e, se ripetuta più volte, viene correttamente mostrata a video;
+&ensp; - questa entità produce uno spazio leggermente maggiore (poco meno del doppio) rispetto all'entità precedente;
+&emsp; - questa entità produce uno spazio enfatizzato (circa il doppio di &ensp; e quattro volte iù grande di &nbsp;);
+&thinsp; - questa entità, invece, produce uno spazio più piccolo di quello prodotto con &nbsp;.

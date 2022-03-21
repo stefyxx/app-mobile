@@ -1,0 +1,36 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Welcome to Brussels!
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Welcome to Brussels!</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+    <ion-grid class="flexible">
+      <ion-row class="flexible">
+          <ion-col size="2" *ngFor="let luogo of myLista" class="flexible">
+            <div class="ion-text-start">
+              <h3 ion-color-secondary>{{luogo.titre}}</h3>
+              {{luogo.description}}
+            </div>
+            <ion-img [src]="luogo.photo.filePath" class="grandezzaImg"></ion-img>
+            <div class="ion-text-center">
+              <a href="{{luogo.link_EN_wiki}}" target="_blank">Wikipedia</a>
+            </div>
+          </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-item>
+      <ion-label>Enter search query</ion-label>
+      <ion-input enterkeyhint="search" type="search" placeholder="search"></ion-input>
+    </ion-item>   
+  </div>
+</ion-content>
