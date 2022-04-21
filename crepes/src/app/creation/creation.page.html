@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button (click)="retourHome()">
+      <ion-icon name="home"></ion-icon>
+      Ritorna a Home
+    </ion-button>
+    <ion-title>Nuova crepe</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!--per controllare/vedere la foto presa-->
+  <div *ngIf="newPhoto">
+    <p>Immagine presa:</p>
+    <ion-img class="upload" [src]="newPhoto.webViewPath"></ion-img>
+  </div>
+  <br>
+  <!--novalidate se ho un altro formulario nativo, il submit potrebbe far submettere anche questo-->
+  <form #panForm="ngForm" (ngSubmit)="onAddPancake(panForm)" novalidate>
+    <ion-item>
+      <ion-label>Prends ta photo</ion-label>
+      <ion-button type="button"(click)="addPhoto()">
+        <ion-icon name="camera"></ion-icon>
+      </ion-button> 
+    </ion-item>
+
+    <ion-item>
+      <ion-label for="leNom">Titre</ion-label>
+      <input type="text" name="leNom" ngModel required #leNom="ngModel">
+    </ion-item>
+
+    <ion-item>
+      <ion-label for="descr">Description:</ion-label>
+      <textarea name="descr" cols="30" rows="10" placeholder="descrizione qui'.." required ngModel #descr="ngModel"></textarea>
+      <!--[(ngModel)]="descr"-->
+    </ion-item>
+    <ion-item>
+      <ion-label for="">Position:</ion-label>
+      <ion-button type="button"(click)="addPosition()"></ion-button>
+    </ion-item>
+    <ion-item *ngIf="currentLocation">
+      <ion-label>Latutude: {{currentLocation.lati}}</ion-label>
+      <ion-label>Longitude: {{currentLocation.longi}}</ion-label>
+    </ion-item>
+
+    <ion-button *ngIf="currentLocation" name="maps" (click)="showMap()"></ion-button>
+
+    <ion-item>
+      <input type="submit" value="Enregistrer">
+    </ion-item>
+  </form>
+
+</ion-content>

@@ -1,0 +1,7 @@
+{
+  "name": "crepes",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

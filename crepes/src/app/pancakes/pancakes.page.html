@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button (click)="retourHome()">
+      <ion-icon name="home"></ion-icon>
+      Ritorna a Home
+    </ion-button>
+    <ion-title>Pancakes détails</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <h3>{{maCrepe.name}}</h3>
+      <ion-img *ngIf="maCrepe.photo" [src]="maCrepe.photo.webViewPath" ></ion-img>
+    </ion-card-header>
+    <ion-card-content>
+      {{maCrepe.description}}
+    </ion-card-content>
+    <ion-item *ngIf="maCrepe.location">
+      <ion-label>Latutude: {{maCrepe.location.lati}}</ion-label>
+      <ion-label>Longitude: {{maCrepe.location.longi}}</ion-label>
+    </ion-item>
+    <ion-button *ngIf="maCrepe.location" (click)="showMap()"></ion-button>
+  </ion-card>
+</ion-content>

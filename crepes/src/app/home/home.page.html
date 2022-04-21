@@ -1,0 +1,31 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      lista di crepes
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div id="container">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6" *ngFor="let crep of mesCrepes">
+          <h3>{{crep.name}}</h3>
+          <!--<img src="{{crep.photo.webViewPath}}" alt="">-->
+          <!--<ion-img [src]="crep.photo.webViewPath"></ion-img>-->
+          <!--<img *ngIf="crep.photo.webViewPath is null" src="https://www.pngall.com/wp-content/uploads/5/Pancake-PNG-Images.png">-->
+          <img *ngIf="crep.photo.webViewPath" src="{{crep.photo.webViewPath}}" width="20%">
+          <p>{{crep.description}}</p>
+          <a [routerLink] = "['/pancakes/detail/', crep.id]">Verso i dettagli</a>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    
+    <ion-fab vertical="buttom" horizontal="center" slot="fixed">
+      <ion-fab-button (clich)="createNew()">
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  </div>
+</ion-content>
